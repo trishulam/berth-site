@@ -214,6 +214,17 @@ footer em{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--
 .draft .txt .send{display:inline-block;margin-top:14px;border:1px solid #9C9A92;color:#8A8A86;padding:8px 14px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:not-allowed}
 .tally{margin-top:80px}
 
+/* emails from Fix in the ledger */
+.note{display:flex;flex-direction:column;gap:12px;font-family:var(--sans);font-size:16px;line-height:1.55;color:rgba(236,232,221,.85);max-width:640px}
+.note .subj{display:block;font-size:12px;letter-spacing:.06em;color:var(--ash);padding-bottom:10px;border-bottom:1px solid var(--rule);margin-bottom:4px}
+.note .subj b{font-weight:400;color:rgba(236,232,221,.6);margin-right:8px;letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+.note em{font-style:italic;font-family:var(--serif);font-size:1.1em}
+.note .kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 20px;margin:2px 0}
+.note .kv dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);padding-top:4px}
+.note .kv dd{margin:0}
+.row .act em{font-family:var(--serif);font-style:italic}
+.lives .label{display:block;margin-bottom:14px}
+
 /* trust */
 .trust{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:56px 0;grid-template-columns:repeat(3,1fr)}
 .trust p{font-family:var(--serif);font-size:32px;line-height:1.1;letter-spacing:-.01em;color:var(--bone);text-wrap:balance}
@@ -257,6 +268,8 @@ footer em{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--
   .cover .cpanel .ch h1{font-size:72px}
   .cover .cpanel .ch p{font-size:22px}
   .row{grid-template-columns:1fr;gap:6px 0;padding:22px 0}
+  .note .kv{grid-template-columns:1fr;gap:2px 0}
+  .note .kv dd{margin-bottom:8px}
   .row .t,.row .who{padding-top:0}
   .row .c{margin-top:8px}
   .act{font-size:21px}

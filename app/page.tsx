@@ -6,10 +6,10 @@ import Footer from "@/components/Footer";
 
 const FAQ = [
   { q: "What is Berth?", a: "Berth is a maritime AI firm. We build proactive, long-running agents, one for each desk in maritime trade, starting with chartering." },
-  { q: "What is a desk agent?", a: "An agent that lives in a desk's existing inbox, reads the market as it arrives, holds every live matter, drafts and follows up, and learns that desk. Fix is the chartering one." },
+  { q: "What is a desk agent?", a: "A teammate that lives in a desk's existing email. It reads what the desk already receives, remembers every live matter, drafts the next move into the desk's own Drafts, and talks to the desk in plain email. It never sends outside; the desk does. Fix is the chartering one." },
   { q: "Who is it for?", a: "Shipbrokers, owners' chartering desks, operators and traders. From a two-person desk upward." },
   { q: "Which desks are next?", a: "Operations, laytime and claims, and bunkering, in that order, each connected to the fixture that came before it." },
-  { q: "How does it start?", a: "On one desk, on live enquiries, alongside whatever you use today. Keep it if it earns its place." },
+  { q: "How does it start?", a: "Connect one desk's inbox. Done in an afternoon, nothing installed, nothing changes on day one. The agent starts reading and emails the desk when it has something. Keep it if it earns its place." },
 ];
 
 export default function Home() {
@@ -36,15 +36,15 @@ export default function Home() {
             <h2>Fix, the first desk.</h2>
             <div className="col">
               <div className="quad">
-                <div><h3>Read</h3><p>Every circular, order, recap and reply, structured the moment it lands.</p></div>
-                <div><h3>Hold</h3><p>Every live deal kept open. Who offered, who countered, what&rsquo;s pending.</p></div>
-                <div><h3>Act</h3><p>Drafts the offer, the counter, the chase. Wakes itself up. You send.</p></div>
-                <div><h3>Learn</h3><p>Knows your counterparties, your habits, your phrasing. Gets better on your desk, not on a demo.</p></div>
+                <div><h3>Read</h3><p>Every circular, order, recap and reply, understood the moment it lands.</p></div>
+                <div><h3>Remember</h3><p>Every open cargo, vessel and deal. Who offered, who countered, what&rsquo;s still open.</p></div>
+                <div><h3>Draft</h3><p>The proposal, the counter, the chase, the recap, into your Outlook Drafts. You send.</p></div>
+                <div><h3>Talk</h3><p>Emails you what it found and what it would do next. Reply to steer it. Forward it anything.</p></div>
               </div>
               <div className="pull">
                 <div>
-                  <q>No reply overnight. Woke itself, drafted the chase, kept the deal open. Nothing dropped.</q>
-                  <small className="label">Tuesday 08:00, from one circular followed to the fixture</small>
+                  <q>Quiet since yesterday afternoon. A two-line chase is in your Drafts. Send it if you want to push; I&rsquo;m watching the thread either way.</q>
+                  <small className="label">Fix, Friday 10:00, from one cargo followed to the fixture</small>
                 </div>
                 <Link className="btn" href="/fix">See Fix at work <span aria-hidden="true">↗</span></Link>
               </div>

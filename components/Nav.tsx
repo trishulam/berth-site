@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Mark from "./Mark";
 
-import { FORWARD_HREF } from "./links";
+import { DESK_HREF } from "./links";
 
 export default function Nav() {
   const path = usePathname();
@@ -44,7 +44,7 @@ export default function Nav() {
         <li><Link href="/#thesis">Thesis</Link></li>
         <li><Link href="/fix" className={onFix ? "here" : ""}>Fix</Link></li>
         <li><Link href={onFix ? "/fix#fixfaq" : "/#faq"}>Faq</Link></li>
-        <li className="cta"><a className="btn" href={FORWARD_HREF}>Forward one circular</a></li>
+        <li className="cta"><a className="btn" href={DESK_HREF}>Put Fix on your desk</a></li>
       </ul>
     </nav>
   );

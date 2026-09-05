@@ -1,107 +1,146 @@
 import Mark from "./Mark";
 
+/**
+ * "One cargo, one conversation." — a deal followed from first match to fixture,
+ * shown as the actual thread: the mail that lands on the desk, the emails Fix sends
+ * the broker, and the broker's replies that steer it. Fix never writes to the outside;
+ * every external message is a draft in the broker's Outlook until the broker sends it.
+ */
+
 type Who = "inbox" | "fix" | "you";
 
 function Row({ t, who, children }: { t: string; who: Who; children: React.ReactNode }) {
   return (
     <div className={`row${who === "fix" ? " fx" : ""}`}>
       <span className="t">{t}</span>
-      <span className={`who ${who}`}>{who === "fix" && <Mark />}{who === "inbox" ? "Inbox" : who === "fix" ? "Fix" : "You"}</span>
+      <span className={`who ${who}`}>
+        {who === "fix" && <Mark />}
+        {who === "inbox" ? "Desk inbox" : who === "fix" ? "Fix" : "You"}
+      </span>
       <div className="c">{children}</div>
     </div>
   );
 }
 
-const FIELDS: [string, string][] = [
-  ["Vessel", "Pearl Island"], ["Type", "Ultramax"], ["DWT", "63,878"], ["Built", "2018"],
-  ["Open", "Kandla"], ["Dates", "12–15 Oct"], ["Gear", "4 × 30 t, grabs"], ["Prefers", "India / PG → Far East"],
-];
+/** An email from Fix, in the conversation the broker has with it about this deal. */
+function Note({ subject, children }: { subject?: string; children: React.ReactNode }) {
+  return (
+    <div className="note">
+      {subject && <span className="subj"><b>Subject</b> {subject}</span>}
+      {children}
+    </div>
+  );
+}
 
-const MATCHES = [
-  { n: "01", tt: "55,000 mt iron ore fines, Paradip → Qingdao", r: "Laycan 18–24 Oct",
-    why: "Ballast 7 days, arrives day one of laycan. Gear and grabs as required. Same charterers fixed her sister in March." },
-  { n: "02", tt: "52,000 mt sulphur, Ras Al Khair → Fangcheng", r: "Laycan 20–26 Oct",
-    why: "Ballast 4 days, 4 days spare. Discharge port asks for 12 cbm grabs; she has them." },
-  { n: "03", tt: "TCT 35–45 days via PG, redelivery SE Asia", r: "Delivery 12–18 Oct",
-    why: "Delivery Kandla direct. Owners said open for TCT; these charterers last paid $14,250 for similar." },
-];
+const CARGO = `ACCT CHRTRS / 50,000 MT 10% MOLOO STEAM COAL
+TABONEO – KRISHNAPATNAM / LAYCAN 20–25 JUL
+12,000 SHINC LOAD / 15,000 SHINC DISCH
+2.5% ADDCOM / NEED GEARED SUPRA / PLS OFFER`;
 
-const CIRCULAR = `GOOD DAY, PLS FIND BELOW OUR OPEN POSITION. ANY CARGO / TCT?
-MV PEARL ISLAND – ULTRAMAX, BLT 2018, 63,878 DWT ON 13.30M SSW – LOA 199.9M / BEAM 32.26M – 5 HO / 5 HA, 4 X 30T CRANES, 4 X 12 CBM GRABS – GRAIN 77,300 CBM
-OPEN KANDLA 12–15 OCT AGW WP – PREFER INDIA / PG – FAR EAST, OPEN FOR TCT – ALL DTLS ABT / WOG`;
+const DRAFT_1 = `TKS. PLS PROPOSE MV CRAMOND ISLAND, SUPRAMAX 57,315 DWT BLT 2017, FOR:
 
-const DRAFT = `TKS FOR PEARL ISLAND. PLS PROPOSE HER FOR THE FOLLOWING:
+50,000 MT 10% MOLOO STEAM COAL / TABONEO – KRISHNAPATNAM
+LAYCAN 20–25 JUL / 12,000 SHINC LOAD / 15,000 SHINC DISCH / 2.5% ADDCOM
 
-ACCT CHRTRS / 55,000 MT 10% MOLOO IRON ORE FINES
-PARADIP – QINGDAO / LAYCAN 18–24 OCT
-25,000 SHINC LOAD / 20,000 SHINC DISCH
-3.75% ADDCOM / OWISE AS PER LAST DONE
-
-VESSEL FITS ON DATES AND GEAR. PLS ADVISE OWNERS' IDEAS.
+PLS CONFIRM VSL READINESS MANGALORE 8 JUL AND OWNERS' IDEAS.
 
 BRGDS
 `;
 
-/** "One circular, followed to the fixture." — a Monday-to-Thursday deal thread with Fix's work in it. */
 export default function Ledger() {
   return (
     <section className="section wrap" id="circular">
       <div className="grid head">
-        <h2>One circular, followed to the fixture.</h2>
-        <p className="body">A position lands on a Monday morning. This is what Fix does with it, and what it keeps doing after the desk has moved on to the next thing.</p>
+        <h2>One cargo, one conversation.</h2>
+        <p className="body">A cargo lands on the desk on a Monday morning. Nobody briefs Fix. This is the conversation the broker has with it over the next eight days, and the drafts that sit in Outlook along the way.</p>
       </div>
       <div className="ledger">
-        <Row t="Mon 09:41" who="inbox">
+        <Row t="Mon 09:12" who="inbox">
           <div className="mail">
-            <span className="hdr"><b>From</b>  Owners&rsquo; brokers, Singapore &nbsp;&nbsp; <b>Subj</b>  MV PEARL ISLAND – ULTRAMAX 63,878 DWT – OPEN KANDLA 12/15 OCT</span>
-            {CIRCULAR}
+            <span className="hdr"><b>From</b>  Charterers&rsquo; brokers, Singapore &nbsp;&nbsp; <b>Subj</b>  50K COAL TABONEO / KRISHNAPATNAM 20-25 JUL</span>
+            {CARGO}
           </div>
         </Row>
-        <Row t="Mon 09:41" who="fix">
-          <p className="act">Read it. Position opened on the desk.</p>
-          <div className="fields">
-            {FIELDS.map(([k, v]) => (
-              <div className="field" key={k}><span className="label">{k}</span><span>{v}</span></div>
-            ))}
-          </div>
+
+        <Row t="Mon 09:13" who="fix">
+          <Note subject="Possible match: 50k coal Taboneo / Krishnapatnam, 20–25 Jul">
+            <p>Found a fit for the coal that just came in.</p>
+            <dl className="kv">
+              <dt>Cargo</dt><dd>50,000 mt steam coal, Taboneo to Krishnapatnam, laycan 20–25 Jul, geared Supra wanted.</dd>
+              <dt>Vessel</dt><dd>MV Cramond Island, Supramax 57,315 dwt, built 2017, 4 × 30 t cranes. Opening Mangalore about 8 Jul, from the owners&rsquo; brokers&rsquo; position list last Tuesday. Ballast to Taboneo about nine days, so on the laycan.</dd>
+              <dt>Concerns</dt><dd>Load readiness unconfirmed. No freight idea yet.</dd>
+              <dt>Next move</dt><dd>Ask owners to confirm readiness and give an indication.</dd>
+            </dl>
+            <p>The draft is in your Drafts folder. Reply here for changes.</p>
+          </Note>
         </Row>
-        <Row t="Mon 09:42" who="fix">
-          <p className="act">Matched her against the desk&rsquo;s 41 live orders. Three fit.</p>
-          <div className="matches">
-            {MATCHES.map((m) => (
-              <div className="match" key={m.n}>
-                <span className="n">{m.n}</span><span className="tt">{m.tt}</span><span className="r">{m.r}</span><span className="why">{m.why}</span>
-              </div>
-            ))}
-          </div>
-        </Row>
-        <Row t="Mon 09:43" who="fix">
-          <p className="act">Drafted the proposal for the first match, in your Outlook, in your words.</p>
+
+        <Row t="Mon 09:20" who="you"><p className="act">Shorter, and don&rsquo;t mention freight.</p></Row>
+
+        <Row t="Mon 09:21" who="fix">
+          <Note><p>Done. Draft updated.</p></Note>
           <div className="draft">
-            <div className="bar"><b>RE: MV PEARL ISLAND – OPEN KANDLA 12–15 OCT</b><span className="chip">Draft</span></div>
-            <div className="meta"><b>To</b> &nbsp;Owners&rsquo; brokers, Singapore<br /><b>Cc</b> &nbsp;Chartering</div>
-            <div className="txt">{DRAFT}<span className="send" aria-disabled="true">Send · You</span></div>
+            <div className="bar"><b>RE: 50K COAL TABONEO / KRISHNAPATNAM 20-25 JUL</b><span className="chip">Draft</span></div>
+            <div className="meta"><b>To</b> &nbsp;Owners&rsquo; brokers, Singapore</div>
+            <div className="txt">{DRAFT_1}<span className="send" aria-disabled="true">Send · You</span></div>
           </div>
         </Row>
-        <Row t="Mon 10:05" who="you"><p className="act">Read it, changed one line, sent it.</p></Row>
-        <Row t="Mon 15:20" who="inbox"><p className="act mono">OWNERS IDEA USD 18.75 PMT FIOST, 1/1, LAYCAN OK, SUBS 48 HRS. PLS REVERT.</p></Row>
-        <Row t="Mon 15:20" who="fix">
-          <p className="act">Held it. Deal opened: owners at $18.75, charterers&rsquo; last done on this run $17.10. Watch set for a reply by 17:00.</p>
-          <p className="act">Drafted the counter at $17.25, with the reason in the internal note: your last three Paradip–Qingdao fixtures averaged $17.10 and the route is up 40 cents this week.</p>
+
+        <Row t="Mon 09:34" who="you"><p className="act">Sent it from Outlook, unchanged.</p></Row>
+
+        <Row t="Thu 14:05" who="inbox"><p className="act mono">VSL READY MANGALORE 8 JUL AGW WP. OWNERS IDEA USD 14.50 PMT FIOST 1/1. SUBS 48 HRS. PLS REVERT.</p></Row>
+
+        <Row t="Thu 14:06" who="fix">
+          <Note>
+            <p>Owners came back on Cramond Island. Same conversation, picking up where we left off.</p>
+            <dl className="kv">
+              <dt>Changed</dt><dd>Readiness confirmed for 8 Jul. First idea $14.50 per mt.</dd>
+              <dt>Still open</dt><dd>Demurrage rate. Laydays margin at Taboneo.</dd>
+              <dt>Last time</dt><dd>These owners moved 40 cents after a night&rsquo;s silence, in March.</dd>
+              <dt>Suggested counter</dt><dd>$13.60, laycan as is. Your last three on this run were $13.40 to $14.10.</dd>
+            </dl>
+            <p>Counter is drafted. Reply here for changes.</p>
+          </Note>
         </Row>
-        <Row t="Mon 16:48" who="you"><p className="act">Sent the counter.</p></Row>
-        <Row t="Tue 08:00" who="fix"><p className="act">No reply overnight. Woke itself, drafted the chase, kept the deal open. Nothing dropped.</p></Row>
-        <Row t="Tue 11:30" who="inbox"><p className="act mono">OWNERS CAN DO USD 17.60 PMT, OWISE AS OFFERED. FIRM TILL 1700 SGT.</p></Row>
-        <Row t="Tue 11:30" who="fix"><p className="act">Logged the counter, moved the watch to 17:00 SGT, drafted the reply at $17.40 and flagged the firm deadline in the deal thread.</p></Row>
-        <Row t="Wed 09:15" who="you"><p className="act">Fixed at $17.40, on subs.</p></Row>
-        <Row t="Wed 09:16" who="fix"><p className="act">Deal on subs. Watch set for subs to lift by Thursday noon. Clean recap drafted from the thread, clause by clause, laytime terms noted for the claims file.</p></Row>
-        <Row t="Thu 11:12" who="inbox"><p className="act mono">SUBS LIFTED. PLS SEND CLEAN RECAP.</p></Row>
-        <Row t="Thu 11:12" who="fix"><p className="act">Fixed. Recap in your outbox. Remembered: these owners come back on price after a night&rsquo;s silence; these charterers pay a little over last done for early laycan.</p></Row>
+
+        <Row t="Thu 14:40" who="you"><p className="act">Go 13.75. Remind me tomorrow if they haven&rsquo;t replied.</p></Row>
+
+        <Row t="Thu 14:41" who="fix"><Note><p>Draft updated to $13.75. I&rsquo;ll check the thread at ten tomorrow and only write if it&rsquo;s quiet.</p></Note></Row>
+
+        <Row t="Fri 10:00" who="fix"><Note><p>Quiet since yesterday afternoon. A two-line chase is in your Drafts. Send it if you want to push; I&rsquo;m watching the thread either way.</p></Note></Row>
+
+        <Row t="Fri 11:20" who="you">
+          <p className="act">Forwarded an agent&rsquo;s mail about berth congestion at Krishnapatnam: <em>can you help with this?</em></p>
+        </Row>
+
+        <Row t="Fri 11:21" who="fix"><Note><p>This looks like the coal / Cramond Island deal. Confirm? If so I&rsquo;ll note the berth delay against the laycan and flag it when we talk demurrage.</p></Note></Row>
+
+        <Row t="Fri 11:23" who="you"><p className="act">Yes.</p></Row>
+
+        <Row t="Mon 09:05" who="inbox"><p className="act mono">OWNERS CAN DO USD 13.90 PMT, OWISE AS OFFERED. FIRM TILL 1700 SGT.</p></Row>
+
+        <Row t="Mon 09:06" who="fix">
+          <Note>
+            <p>Owners at $13.90, firm until 17:00 Singapore. That&rsquo;s inside your last three on this run. Demurrage still to agree; the Krishnapatnam congestion note from Friday is attached to the deal for that conversation.</p>
+            <p>Acceptance is drafted, subs 48 hours. Reply <em>go</em> and it&rsquo;s ready to send.</p>
+          </Note>
+        </Row>
+
+        <Row t="Mon 09:40" who="you"><p className="act">Go.</p></Row>
+
+        <Row t="Wed 09:15" who="inbox"><p className="act mono">SUBS LIFTED. PLS SEND CLEAN RECAP.</p></Row>
+
+        <Row t="Wed 09:16" who="fix">
+          <Note>
+            <p>Fixed. Cramond Island, Taboneo to Krishnapatnam, $13.90 per mt. The clean recap is in your Drafts, built from the agreed points in the thread.</p>
+            <p>Noted for next time: these owners come back after a night&rsquo;s silence, and you like the first message short.</p>
+          </Note>
+        </Row>
       </div>
       <div className="grid stats tally">
-        <div className="stat"><b>4</b><p>days, Monday circular to Thursday fixture.</p></div>
-        <div className="stat"><b>9</b><p>messages read, 5 drafted, 1 chase. Nothing dropped.</p></div>
-        <div className="stat"><b>5</b><p>messages left the desk. You sent every one.</p></div>
+        <div className="stat"><b>1</b><p>conversation, from first match to fixture. Eight days, one thread.</p></div>
+        <div className="stat"><b>6</b><p>drafts in Outlook. You sent every one of them.</p></div>
+        <div className="stat"><b>0</b><p>emails sent by Fix to anyone outside the desk. It can&rsquo;t.</p></div>
       </div>
     </section>
   );
