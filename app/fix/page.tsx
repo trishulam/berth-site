@@ -50,7 +50,7 @@ export default function FixPage() {
         <div className="cfoot"><span>berth.ai/fix</span><em>Fix by Berth</em></div>
       </header>
 
-      <main>
+      <main className="fixmain">
         <section className="section wrap" id="what">
           <div className="grid head">
             <h2>What Fix does</h2>
@@ -78,12 +78,12 @@ export default function FixPage() {
           </div>
         </section>
 
-        <section className="section wrap" id="lives">
-          <div className="grid head">
+        <section className="paper sheet" id="lives">
+          <div className="wrap grid head">
             <h2>A colleague in the address book</h2>
             <p className="body">Nothing to install. Fix is connected to the desk inbox, read and draft only, and gets an address of its own. From there it behaves like a person on the desk who never sleeps and never sends.</p>
           </div>
-          <div className="grid lives">
+          <div className="wrap grid lives">
             <div><h3>Your Outlook</h3><p>Fix reads the desk mailbox as mail arrives and writes drafts into your Drafts folder. Nothing else changes.</p></div>
             <div><h3>Its address</h3><p>Fix writes to you from its own address, one conversation per deal. Reply in the thread to change a draft, set a reminder, or say no.</p></div>
             <div><h3>Forward anything</h3><p>An agent&rsquo;s note, a stale circular, a WhatsApp screenshot. Fix works out which deal it belongs to, asks if it isn&rsquo;t sure, and carries on.</p></div>

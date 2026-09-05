@@ -9,8 +9,9 @@ type Lane = [number, number[], number[], number[]];
 const LANES = lanes as Lane[];
 
 const IMG_A = 6000 / 2160; // hero render aspect
-const ZOOM = 1.3;          // zoomed on the Indian Ocean basin
+const ZOOM_WIDE = 1.3;     // zoomed on the Indian Ocean basin on wide screens
 const U0 = 0.21;           // window starts 21% into the map: Cape ~38% of the viewport, Malacca ~82%
+const MALACCA_U = 0.612;   // where the strait sits in the frame; centred on narrow screens
 
 type Particle = {
   px: number[]; py: number[]; n: number; dir: number; t: number; v: number;
@@ -32,8 +33,10 @@ export default function Hero() {
     let W = 0, H = 0, dw = 0, dh = 0, ox = 0, oy = 0;
     const layout = () => {
       W = hero.clientWidth; H = hero.clientHeight;
-      const s = Math.max(W / IMG_A, H) * ZOOM;
-      dw = s * IMG_A; dh = s; ox = -U0 * dw; oy = (H - dh) * 0.5;
+      const narrow = W < 800;
+      const s = Math.max(W / IMG_A, H) * (narrow ? 1 : ZOOM_WIDE);
+      dw = s * IMG_A; dh = s; oy = (H - dh) * 0.5;
+      ox = narrow ? W * 0.5 - MALACCA_U * dw : -U0 * dw;
       if (ox + dw < W) ox = W - dw;
       if (ox > 0) ox = 0;
       [v, still].forEach((m) => {
@@ -47,9 +50,8 @@ export default function Hero() {
 
     if (reduce) {
       v?.remove();
-      still.style.display = "block";
     } else if (v) {
-      v.addEventListener("error", () => { v.remove(); still.style.display = "block"; });
+      v.addEventListener("error", () => v.remove());
       v.play().catch(() => {});
     }
 
@@ -144,11 +146,12 @@ export default function Hero() {
   return (
     <header className="hero" id="top" ref={heroRef}>
       <div className="hero-media" aria-hidden="true">
-        <video ref={videoRef} autoPlay muted loop playsInline poster="/assets/hero.webp" id="heroVideo">
+        {/* the sharp still sits under the loop, so hairlines stay crisp while the video breathes over it */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img ref={stillRef} src="/assets/hero-4800.webp" alt="" id="heroStill" fetchPriority="high" />
+        <video ref={videoRef} autoPlay muted loop playsInline id="heroVideo">
           <source src="/assets/hero-loop.mp4" type="video/mp4" />
         </video>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img ref={stillRef} src="/assets/hero.webp" alt="" id="heroStill" />
         <canvas ref={canvasRef} id="heroLive" />
       </div>
       <div className="hero-copy">

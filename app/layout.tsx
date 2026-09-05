@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: { default: "Berth", template: "%s · Berth" },
   description: "Fix by Berth. Agents for every desk in maritime trade.",
   metadataBase: new URL("https://berth.ai"),
-  openGraph: { siteName: "Berth", type: "website", images: ["/assets/hero-1200.jpg"] },
+  openGraph: { siteName: "Berth", type: "website" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
