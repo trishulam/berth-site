@@ -75,7 +75,6 @@ export default function Nav() {
       </nav>
 
       {/* the phone menu: a sheet of paper sliding in from the right */}
-      <div className={`scrim${open ? " show" : ""}`} onClick={() => setOpen(false)} aria-hidden="true" />
       <aside className={`sheet${open ? " show" : ""}`} id="sheet" aria-hidden={!open}>
         <div className="sheet-top"><span className="label">{onFix ? "Fix by Berth" : "Agents for every desk in maritime trade"}</span></div>
         <nav className="sheet-links">

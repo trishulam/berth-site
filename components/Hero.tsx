@@ -157,7 +157,6 @@ export default function Hero() {
         <canvas ref={canvasRef} id="heroLive" />
       </div>
       <div className="hero-copy">
-        <span className="label">Agents for every desk in maritime trade</span>
         <h1>Your desk<br />fixes more<br />when it<br />knows more.</h1>
         <div className="cta-row">
           <Link className="btn" href="/fix">See Fix at work <Arrow /></Link>
