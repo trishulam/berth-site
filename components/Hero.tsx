@@ -49,7 +49,8 @@ export default function Hero() {
     };
     layout();
 
-    if (reduce) {
+    // phones: the sharp still plus the live layer is enough; skip the 1.4 MB loop
+    if (reduce || window.innerWidth < 640) {
       v?.remove();
     } else if (v) {
       v.addEventListener("error", () => v.remove());
