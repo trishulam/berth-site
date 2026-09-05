@@ -28,7 +28,7 @@ img,video{display:block;max-width:100%}
 .textlink:hover{color:var(--bone)}
 .cta-row{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
 .cta-addr{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ash)}
-h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;color:var(--bone)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.025em;color:var(--bone);font-optical-sizing:auto}
 h2{font-size:clamp(72px,6.7vw,96px);line-height:1;text-wrap:balance}
 .section{padding-top:var(--section)}
 [id]{scroll-margin-top:88px}
@@ -43,7 +43,7 @@ h2{font-size:clamp(72px,6.7vw,96px);line-height:1;text-wrap:balance}
 /* nav */
 .nav{position:fixed;inset:0 0 auto 0;height:88px;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:rgba(10,10,10,0);transition:background .4s,color .4s}
 .nav.solid{background:var(--black)}
-.brand{display:inline-flex;align-items:center;gap:12px;font-family:var(--serif);font-style:italic;font-size:28px;line-height:1;color:var(--bone)}
+.brand{display:inline-flex;align-items:center;gap:12px;font-family:var(--serif);font-style:italic;font-size:28px;font-optical-sizing:auto;line-height:1;color:var(--bone)}
 .brand svg{width:32px;height:24px;display:block}
 .nav ul{display:flex;align-items:center;gap:40px;list-style:none}
 .nav ul a{color:var(--ash);transition:color .3s}
@@ -71,7 +71,7 @@ h2{font-size:clamp(72px,6.7vw,96px);line-height:1;text-wrap:balance}
   linear-gradient(0deg,rgba(10,10,10,.75) 0%,rgba(10,10,10,0) 34%)}
 .hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:clamp(24px,3vw,40px);padding:140px var(--pad) clamp(32px,5vh,48px)}
 .hero-copy .label{margin-bottom:-8px}
-.hero h1{font-size:clamp(96px,11.2vw,160px);line-height:.92;letter-spacing:-.02em;margin-left:-.04em;text-wrap:unset}
+.hero h1{font-size:clamp(96px,10.4vw,150px);line-height:.94;letter-spacing:-.03em;margin-left:-.03em;text-wrap:unset}
 .hero-copy .label{white-space:normal;line-height:1.5;max-width:34ch}
 @keyframes drawin{to{opacity:1}}
 

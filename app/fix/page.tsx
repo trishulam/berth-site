@@ -25,7 +25,7 @@ const FAQ = [
   { q: "Do we have to move to a new system?", a: "No. Fix works inside the Outlook you have. It appears as one more address in your address book, and drafts appear in your Drafts folder. Nothing to migrate, nothing to learn." },
   { q: "What does it keep?", a: "Index cards, not your mail: listings, deals, watches, and its conversations with you. Your mail stays in your mailbox. Nothing is pooled with another desk or used to train another desk's agent." },
   { q: "What does it learn?", a: "Your desk. Your counterparties and how they trade, your last done, how you like a first message written. Every correction you make in a reply is remembered. It does not learn from other desks, and other desks do not learn from yours." },
-  { q: "Who is it for?", a: "Shipbrokers, owners' chartering desks, operators and traders. From a two-person desk upward. Dry cargo first." },
+  { q: "Who is it for?", a: "Shipbrokers, owners' chartering desks, operators and traders. Chartering and S&P alike; Fix covers both. From a two-person desk upward. Dry cargo first." },
 ];
 
 export default function FixPage() {
