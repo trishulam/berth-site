@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import { DESK_HREF, TALK_HREF } from "@/components/links";
 
 export const metadata: Metadata = {
-  title: "Fix by Berth",
+  title: { absolute: "Fix by Berth" },
   description: "Fix, the chartering desk agent. A private teammate that lives in the desk's email: reads the market mail you already get, remembers every open cargo, vessel and deal, spots fits, drafts the next move, chases follow-ups, and talks to you in plain email. It never sends anything outside. You do.",
-  openGraph: { images: ["/assets/fix-cover.jpg"] },
+  openGraph: { images: ["/assets/fix-cover-2.jpg"] },
 };
 
 const STEPS = [
@@ -39,7 +39,7 @@ export default function FixPage() {
         </div>
         <div className="cpanel">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/fix-cover.jpg" alt="" />
+          <img src="/assets/fix-cover-2.jpg" alt="" />
           <span className="desc">The chartering desk agent</span>
           <div className="ch">
             <h1>Fix lives in<br />your inbox.</h1>

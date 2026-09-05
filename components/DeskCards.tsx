@@ -2,11 +2,11 @@ import Link from "next/link";
 import Mark from "./Mark";
 
 const FUTURE = [
-  { pr: "Ops", img: "/assets/card-ops.jpg", alt: "Heavy weather from the bridge wing", desc: "The operations desk agent",
+  { pr: "Ops", img: "/assets/card-ops-2.jpg", alt: "One voyage drawn port to port", desc: "The operations desk agent",
     para: "Ops holds the voyage after the fixture. NOR, laytime, agents, delays, all watched, all in the thread." },
-  { pr: "Claims", img: "/assets/card-claims.jpg", alt: "A port at night, a ship alongside a lit quay", desc: "The laytime and claims desk agent",
+  { pr: "Claims", img: "/assets/card-claims-2.jpg", alt: "Singapore anchorage, ships swinging on their anchors", desc: "The laytime and claims desk agent",
     para: "Claims builds the laytime statement from what actually happened, and settles what's owed." },
-  { pr: "Bunker", img: "/assets/card-bunker.jpg", alt: "A bunker barge alongside a tanker at night", desc: "The bunkering desk agent",
+  { pr: "Bunker", img: "/assets/card-bunker-2.jpg", alt: "The Fujairah bunkering anchorage", desc: "The bunkering desk agent",
     para: "Bunker knows who's supplying what, where, and at what price, before you ask." },
 ];
 
@@ -26,7 +26,7 @@ export default function DeskCards() {
             </div>
             <div className="panel">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/card-fix.jpg" alt="" />
+              <img src="/assets/card-fix-2.jpg" alt="" />
               <span className="desc">The chartering desk agent</span>
               <p className="para">Fix lives in your inbox. It reads every cargo and position, holds every live deal, drafts the counter, and follows up until it&rsquo;s fixed.</p>
               <Mark className="mark" />
