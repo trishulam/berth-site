@@ -26,7 +26,7 @@ export default function DeskCards() {
             </div>
             <div className="panel">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/card-fix-3.jpg" alt="" />
+              <img src="/assets/card-fix-4.jpg" alt="" />
               <span className="desc">The chartering desk agent</span>
               <p className="para">Fix lives in your inbox. It reads every cargo and position, holds every live deal, drafts the counter, and follows up until it&rsquo;s fixed.</p>
               <Mark className="mark" />
