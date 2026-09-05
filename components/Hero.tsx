@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Arrow from "./Arrow";
 import { useEffect, useRef } from "react";
 import lanes from "./lanes.json";
 
@@ -158,7 +159,7 @@ export default function Hero() {
         <span className="label">Agents for every desk in maritime trade</span>
         <h1>Your desk<br />fixes more<br />when it<br />knows more.</h1>
         <div className="cta-row">
-          <Link className="btn" href="/fix">See Fix at work <span aria-hidden="true">↗</span></Link>
+          <Link className="btn" href="/fix">See Fix at work <Arrow /></Link>
           <a className="textlink" href="#thesis">Read the thesis</a>
         </div>
       </div>

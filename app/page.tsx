@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Arrow from "@/components/Arrow";
 import Hero from "@/components/Hero";
 import DeskCards from "@/components/DeskCards";
 import Faq from "@/components/Faq";
@@ -46,7 +47,7 @@ export default function Home() {
                   <q>Quiet since yesterday afternoon. A two-line chase is in your Drafts. Send it if you want to push; I&rsquo;m watching the thread either way.</q>
                   <small className="label">Fix, Friday 10:00, from one cargo followed to the fixture</small>
                 </div>
-                <Link className="btn" href="/fix">See Fix at work <span aria-hidden="true">↗</span></Link>
+                <Link className="btn" href="/fix">See Fix at work <Arrow /></Link>
               </div>
             </div>
           </div>
@@ -61,7 +62,7 @@ export default function Home() {
             <h2>Every voyage, <span className="br">understood.</span></h2>
             <p className="sub">One firm, every desk, connected along the voyage.</p>
             <div className="cta-row">
-              <Link className="btn" href="/fix">See Fix at work <span aria-hidden="true">↗</span></Link>
+              <Link className="btn" href="/fix">See Fix at work <Arrow /></Link>
               <a className="textlink" href="mailto:hello@berth.ai">Talk to us</a>
             </div>
           </div>

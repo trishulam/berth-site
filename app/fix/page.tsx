@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Arrow from "@/components/Arrow";
 import Mark from "@/components/Mark";
 import Ledger from "@/components/Ledger";
 import Faq from "@/components/Faq";
@@ -111,7 +112,7 @@ export default function FixPage() {
             <h2>It moves in.</h2>
             <p className="sub">Not a parsing platform. Not a matching marketplace. Not a dashboard you migrate to. Not a trader. The teammate that works where you already work.</p>
             <div className="cta-row">
-              <a className="btn" href={DESK_HREF}>Put Fix on your desk <span aria-hidden="true">↗</span></a>
+              <a className="btn" href={DESK_HREF}>Put Fix on your desk <Arrow /></a>
               <a className="textlink" href={TALK_HREF}>Talk to us</a>
             </div>
           </div>

@@ -39,6 +39,7 @@ export default function Nav() {
         <Mark />
         Berth
       </Link>
+      <a className="btn mob" href={DESK_HREF}>Put Fix on your desk</a>
       <ul className="label">
         <li><Link href="/#desks" className={onFix ? "" : "here"}>Desks</Link></li>
         <li><Link href="/#thesis">Thesis</Link></li>
