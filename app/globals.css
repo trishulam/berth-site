@@ -245,6 +245,10 @@ main.fixmain h2{font-size:72px}
 .row .act em{font-family:var(--serif);font-style:italic}
 .lives .label{display:block;margin-bottom:14px}
 
+.fold{display:flex;flex-direction:column;align-items:flex-start;gap:6px;width:100%;padding:22px 0;background:none;border:0;border-bottom:1px solid var(--rule);color:var(--bone);cursor:pointer;text-align:left;font-family:var(--serif);font-size:22px;line-height:1.1;letter-spacing:-.01em}
+.fold small{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+.fold span::after{content:" \2193";color:var(--ash)}
+
 /* trust */
 .trust{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:56px 0;grid-template-columns:repeat(3,1fr)}
 .trust p{font-family:var(--serif);font-size:32px;line-height:1.1;letter-spacing:-.01em;color:var(--bone);text-wrap:balance}
@@ -326,13 +330,44 @@ main.fixmain h2{font-size:72px}
   .cta-row{gap:20px}
   .btn{padding:13px 18px;font-size:12px}
   .textlink{font-size:12px}
-  .step h3{font-size:32px}
-  .steps{grid-template-columns:1fr;row-gap:36px}
-  .stat b{font-size:clamp(44px,14vw,56px)}
-  .head{margin-bottom:40px}
-  .s3-head{margin-bottom:40px}
-  .stats.after{margin-top:56px}
-  .tally{margin-top:40px}
+  :root{--section:64px}
+  .step h3{font-size:26px;margin-bottom:10px}
+  .step .label{margin-bottom:14px}
+  .step p{font-size:15px}
+  .steps{grid-template-columns:1fr 1fr;gap:28px 20px;padding-top:28px}
+  .stats{grid-template-columns:repeat(3,1fr);gap:16px}
+  .stat b{font-size:clamp(30px,9vw,40px);margin-bottom:8px}
+  .stat p{font-size:13px;line-height:1.35}
+  .head{margin-bottom:32px}
+  .s3-head{margin-bottom:32px}
+  .stats.after{margin-top:44px}
+  .tally{margin-top:36px}
+  .row{padding:16px 0;gap:4px 0}
+  .row .c{margin-top:6px;gap:10px}
+  .note{font-size:14px;gap:8px}
+  .note .kv dd{margin-bottom:5px}
+  .fields{gap:10px 16px}
+  .field span{font-size:18px}
+  .match{padding:10px 0}
+  .match .tt{font-size:17px}
+  .match .why{font-size:13px}
+  .act{font-size:19px}
+  .draft .txt{padding:10px 14px 14px}
+  .draft .meta{padding:10px 14px 0}
+  .draft .bar{padding:10px 14px}
+  .trust{padding:28px 0;row-gap:22px}
+  .trust p small{font-size:14px;margin-top:6px}
+  .lives{row-gap:22px}
+  .lives div{padding-top:16px}
+  .lives h3{font-size:24px;margin-bottom:8px}
+  .lives p{font-size:15px}
+  .lives .label{margin-bottom:8px}
+  .faq summary{padding:18px 0}
+  .faq .body{font-size:16px}
+  .cover .cpanel .ch{padding:40px var(--pad) 32px}
+  .cover .cpanel .ch p{font-size:17px}
+  .close{min-height:0}
+  .close .inner{padding:96px var(--pad)}
   .trust p{font-size:clamp(22px,7vw,26px)}
   .lives h3{font-size:28px}
   .teaser .pull q{font-size:clamp(22px,6.7vw,26px)}

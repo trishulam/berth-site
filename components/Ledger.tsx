@@ -1,4 +1,5 @@
 import Mark from "./Mark";
+import Collapse from "./Collapse";
 
 /**
  * "One cargo, one conversation." — a deal followed from first match to fixture,
@@ -88,6 +89,7 @@ export default function Ledger() {
 
         <Row t="Mon 09:34" who="you"><p className="act">Sent it from Outlook, unchanged.</p></Row>
 
+        <Collapse label="Follow it to the fixture" count={12}>
         <Row t="Thu 14:05" who="inbox"><p className="act mono">VSL READY MANGALORE 8 JUL AGW WP. OWNERS IDEA USD 14.50 PMT FIOST 1/1. SUBS 48 HRS. PLS REVERT.</p></Row>
 
         <Row t="Thu 14:06" who="fix">
@@ -136,6 +138,7 @@ export default function Ledger() {
             <p>Noted for next time: these owners come back after a night&rsquo;s silence, and you like the first message short.</p>
           </Note>
         </Row>
+        </Collapse>
       </div>
       <div className="grid stats tally">
         <div className="stat"><b>1</b><p>conversation, from first match to fixture. Eight days, one thread.</p></div>
