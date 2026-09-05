@@ -34,9 +34,15 @@ export default function FixPage() {
       {/* The cover card, unfolded: paper band with the Z, the image panel, the paper footer. */}
       <header className="cover" id="fixtop">
         <div className="cband">
-          <span className="tag">The chartering desk agent · Open</span>
-          <div className="row1"><span className="co">Berth</span><span className="rule" /></div>
-          <div className="row2"><span className="rule" /><span className="pr">Fix</span></div>
+          <div className="fr r1">
+            <div className="f"><i>Firm</i><b className="co">Berth</b></div>
+            <div className="f right"><i>Status</i><b>Open</b></div>
+          </div>
+          <div className="fr r2"><span className="pr">Fix</span></div>
+          <div className="fr r3">
+            <div className="f"><i>Desk</i><b>Chartering</b></div>
+            <div className="f right"><i>No.</i><b>01 of 04</b></div>
+          </div>
         </div>
         <div className="cpanel">
           {/* eslint-disable-next-line @next/next/no-img-element */}
