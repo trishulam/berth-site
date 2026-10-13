@@ -50,7 +50,7 @@ export default function Home() {
                 </div>
                 <div className="pull-cta">
                   <Link className="btn" href="/fix">See Fix at work <Arrow /></Link>
-                  <Link className="textlink" href="/fix#film">Watch the film, 2:33</Link>
+                  <Link className="textlink" href="/film">Watch the film, 2:33</Link>
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import Mark from "@/components/Mark";
 import Ledger from "@/components/Ledger";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
+import FilmPlayer from "@/components/FilmPlayer";
 import { DESK_HREF, TALK_HREF } from "@/components/links";
 
 export const metadata: Metadata = {
@@ -71,6 +72,15 @@ export default function FixPage() {
       </header>
 
       <main className="fixmain">
+        {/* the film, straight under the cover: the first thing on the page */}
+        <section className="wrap fixfilm" id="film">
+          <div className="fp-top">
+            <span className="label">A morning on the desk</span>
+            <span className="label">The film · 2:33</span>
+          </div>
+          <FilmPlayer />
+        </section>
+
         <section className="section wrap" id="what">
           <div className="grid head">
             <h2>What Fix does</h2>
@@ -85,18 +95,6 @@ export default function FixPage() {
             <div className="stat"><b>0</b><p>systems to adopt. Fix lives in the inbox your desk already uses.</p></div>
             <div className="stat"><b>1</b><p>new address in the address book. Fix&rsquo;s.</p></div>
             <div className="stat"><b>24/7</b><p>on the deal. It wakes itself up to check, chase and remind.</p></div>
-          </div>
-        </section>
-
-        <section className="section wrap" id="film">
-          <div className="grid head">
-            <h2>A morning on the desk</h2>
-            <p className="body">Two and a half minutes with Fix, from the 07:30 inbox to the fixture and the laytime sheet, and where it goes next.</p>
-          </div>
-          <div className="film">
-            <video controls preload="metadata" playsInline poster="/assets/fix-film-site-poster.jpg">
-              <source src="/assets/fix-film-site.mp4" type="video/mp4" />
-            </video>
           </div>
         </section>
 
