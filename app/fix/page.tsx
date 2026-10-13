@@ -91,11 +91,11 @@ export default function FixPage() {
         <section className="section wrap" id="film">
           <div className="grid head">
             <h2>A morning on the desk</h2>
-            <p className="body">Ninety seconds with Fix: the desk review at 07:30, the fits, the workbook, the drafts, the recap, and the laytime sheet when she discharges.</p>
+            <p className="body">Two minutes with Fix, from the 07:30 inbox to the fixture and the laytime sheet, and where it goes next.</p>
           </div>
           <div className="film">
-            <video controls preload="metadata" playsInline poster="/assets/fix-desk-film-poster.jpg">
-              <source src="/assets/fix-desk-film.mp4" type="video/mp4" />
+            <video controls preload="metadata" playsInline poster="/assets/fix-film-poster.jpg">
+              <source src="/assets/fix-film.mp4" type="video/mp4" />
             </video>
           </div>
         </section>
