@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: TITLE, description: DESC, type: "video.other",
     images: [{ url: FILM_POSTER, width: 1920, height: 1080, alt: "Fix by Berth" }],
-    videos: [{ url: FILM_SRC, type: "video/mp4", width: 1920, height: 1080 }],
+    videos: [{ url: `https://www.berthmaritime.com${FILM_SRC}`, type: "video/mp4", width: 1920, height: 1080 }],
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: [FILM_POSTER] },
 };
