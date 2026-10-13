@@ -67,7 +67,7 @@ export default function Nav() {
             <li key={l.href}><Link href={l.href} className={l.nav === (onFix ? "fix" : "home") && l.nav === "fix" ? "here" : ""}>{l.label}</Link></li>
           ))}
           <li><Link href={onFix ? "/fix#fixfaq" : "/#faq"}>Faq</Link></li>
-          <li className="cta"><a className="btn" href={DESK_HREF}>Put Fix on your desk</a></li>
+          <li className="cta"><a className="btn" href={DESK_HREF}>Start a free month</a></li>
         </ul>
         <button type="button" className={`burger${open ? " x" : ""}`} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="sheet" onClick={() => setOpen((o) => !o)}>
           <span /><span />
@@ -89,7 +89,7 @@ export default function Nav() {
           </Link>
         </nav>
         <div className="sheet-cta">
-          <a className="btn" href={DESK_HREF} onClick={() => setOpen(false)}>Put Fix on your desk <Arrow /></a>
+          <a className="btn" href={DESK_HREF} onClick={() => setOpen(false)}>Start a free month <Arrow /></a>
           <a className="textlink" href={TALK_HREF} onClick={() => setOpen(false)}>Talk to us</a>
         </div>
         <div className="sheet-foot">

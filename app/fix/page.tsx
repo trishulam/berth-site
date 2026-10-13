@@ -8,7 +8,7 @@ import { DESK_HREF, TALK_HREF } from "@/components/links";
 
 export const metadata: Metadata = {
   title: { absolute: "Fix by Berth" },
-  description: "Fix, the chartering desk agent. A private teammate that lives in the desk's email: reads the market mail you already get, remembers every open cargo, vessel and deal, spots fits, drafts the next move, chases follow-ups, and talks to you in plain email. It never sends anything outside. You do.",
+  description: "Fix, the chartering desk agent. A private teammate that lives in the desk's email: reads every email and attachment as it lands, remembers every open cargo, vessel and deal, finds the fits on real sea distances, attaches the voyage workbook and the laytime sheet, drafts the next move and chases follow-ups. It never sends anything outside. You do.",
   openGraph: { images: ["/assets/fix-cover-4.jpg"] },
 };
 
@@ -19,8 +19,21 @@ const STEPS = [
   ["04", "Talk", "Fix emails you when it has something: the fit it found, what's missing, what it would do next. Reply to steer it. Forward it anything you want it to see."],
 ];
 
+/** The jobs Fix does on a desk, every day (the same eight as the one-pager). */
+const JOBS = [
+  ["01", "The desk review", "At 07:30: your fixtures, where they stand, what's due today, and which ships are opening."],
+  ["02", "Fits, on real sea distances", "For each open ship, the cargoes that fit, every ballast checked on real routes: canals, ECA zones and war-risk areas."],
+  ["03", "The voyage workbook", "The freight that pays the ship at your target hire, attached as a live workbook. Change one number and it all recalculates."],
+  ["04", "Drafts, in your words", "Every enquiry and circular is already in your Drafts. Too long? Reply “Shorter.”"],
+  ["05", "Watches, chases, recaps", "It watches for what fits, tracks every counter, chases when a thread goes quiet, and writes the recap."],
+  ["06", "Charter parties, read", "Every CP read and summarised clause by clause, for the desk to check."],
+  ["07", "Every attachment, read", "Recaps, fixture notes, NORs, SOFs, scans and images, read as they land."],
+  ["08", "Laytime and demurrage", "When she discharges, the time sheet comes attached: time allowed, time used, demurrage or despatch."],
+];
+
 const FAQ = [
-  { q: "How does it start?", a: "Connect the desk's inbox. That's it. Done in an afternoon, no IT project, nothing installed. Nothing changes on day one: same Outlook, same counterparties. From that moment Fix is reading, and it emails you when it has something. Reply to steer it. Forward anything you want it to look at." },
+  { q: "How does it start?", a: "With a free month on one desk. Your IT approves a single Microsoft 365 consent: read mail and create drafts, nothing installed. Nothing changes on day one: same Outlook, same counterparties. From that moment Fix is reading, and it emails you when it has something. Reply to steer it. Forward anything you want it to look at." },
+  { q: "What does it work out for us?", a: "Fits on real sea distances, voyage estimates as a live workbook, charter parties read clause by clause, and laytime sheets with demurrage or despatch, all from the mail and attachments the desk already gets. Every figure comes with its working, for the desk to check." },
   { q: "Does Fix send emails on our behalf?", a: "No, and it can't. There is no send in the code, the mailbox connection is read and draft only, and the app permission excludes sending. Every message to a counterparty is a draft in your own Outlook until you send it." },
   { q: "Do we have to move to a new system?", a: "No. Fix works inside the Outlook you have. It appears as one more address in your address book, and drafts appear in your Drafts folder. Nothing to migrate, nothing to learn." },
   { q: "What does it keep?", a: "Index cards, not your mail: listings, deals, watches, and its conversations with you. Your mail stays in your mailbox. Nothing is pooled with another desk or used to train another desk's agent." },
@@ -54,7 +67,7 @@ export default function FixPage() {
           </div>
           <Mark className="mark" />
         </div>
-        <div className="cfoot"><span>berth.ai/fix</span><em>Fix by Berth</em></div>
+        <div className="cfoot"><span>berthmaritime.com/fix</span><em>Fix by Berth</em></div>
       </header>
 
       <main className="fixmain">
@@ -75,13 +88,37 @@ export default function FixPage() {
           </div>
         </section>
 
+        <section className="section wrap" id="film">
+          <div className="grid head">
+            <h2>A morning on the desk</h2>
+            <p className="body">Ninety seconds with Fix: the desk review at 07:30, the fits, the workbook, the drafts, the recap, and the laytime sheet when she discharges.</p>
+          </div>
+          <div className="film">
+            <video controls preload="metadata" playsInline poster="/assets/fix-desk-film-poster.jpg">
+              <source src="/assets/fix-desk-film.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </section>
+
+        <section className="section wrap" id="jobs">
+          <div className="grid head">
+            <h2>Every day on the desk</h2>
+            <p className="body">The groundwork between the emails, done before the desk sits down. Every answer comes with its working, for the desk to check.</p>
+          </div>
+          <div className="grid steps jobs">
+            {JOBS.map(([n, t, p]) => (
+              <div className="step" key={n}><span className="label">{n}</span><h3>{t}</h3><p>{p}</p></div>
+            ))}
+          </div>
+        </section>
+
         <Ledger />
 
         <section className="section wrap" id="trust">
           <div className="grid trust">
             <p>It can&rsquo;t send. Not won&rsquo;t. Can&rsquo;t.<small>There is no send in the code. The mailbox connection is read and draft only. The app permission excludes sending. Every message to the outside world is yours.</small></p>
             <p>Index cards, never your mail.<small>Fix keeps listings, deals, watches and its conversations with you. Your mail stays in your mailbox. Nothing is pooled with another desk.</small></p>
-            <p>One deal, one conversation.<small>From first match to close, in the thread you already have with Fix. Reply to steer it. Forward anything you want it to see.</small></p>
+            <p>One approval from IT.<small>A single Microsoft 365 admin consent: read mail and create drafts. Send is never requested.</small></p>
           </div>
         </section>
 
@@ -103,9 +140,9 @@ export default function FixPage() {
             <p className="body">Email is right for the everyday loop and wrong for the heavy end of a deal. The same conversation is built to move.</p>
           </div>
           <div className="grid lives">
-            <div><span className="label">Next</span><h3>The deal room</h3><p>When a deal reaches recap or charter party, every Fix email carries a link. One screen for that deal: the timeline across every thread, where things stand, the documents, and Fix to talk to. Same conversation as the email, so you can go back to your inbox tomorrow and nothing is lost.</p></div>
-            <div><span className="label">Then</span><h3>The desk view</h3><p>Every live deal on the desk, what&rsquo;s waiting on you, what Fix is watching, what&rsquo;s due. Not a place you have to work; a place you can look. With the numbers alongside: voyage estimates, laytime, rate context.</p></div>
-            <div><span className="label">Later</span><h3>More channels</h3><p>WhatsApp and Teams into the same conversations, with the same memory. And, for firms that want it, Fix&rsquo;s mailbox inside their own tenant.</p></div>
+            <div><span className="label">Today</span><h3>The working, attached</h3><p>Every estimate arrives as a live voyage workbook, every discharge as a laytime sheet, attached to the email Fix sends you.</p></div>
+            <div><span className="label">Next</span><h3>A deal room, more channels</h3><p>When a deal reaches recap or charter party, one screen for it: the timeline across every thread, the documents, and Fix to talk to. And WhatsApp and Teams into the same conversations, with the same memory.</p></div>
+            <div><span className="label">Then</span><h3>Every desk in maritime trade</h3><p>Operations, claims and bunkering, each picking up the voyage where the desk before it left off. One memory of the voyage.</p></div>
           </div>
         </section>
 
@@ -118,7 +155,7 @@ export default function FixPage() {
             <h2>It moves in.</h2>
             <p className="sub">Not a parsing platform. Not a matching marketplace. Not a dashboard you migrate to. Not a trader. The teammate that works where you already work.</p>
             <div className="cta-row">
-              <a className="btn" href={DESK_HREF}>Put Fix on your desk <Arrow /></a>
+              <a className="btn" href={DESK_HREF}>Start a free month <Arrow /></a>
               <a className="textlink" href={TALK_HREF}>Talk to us</a>
             </div>
           </div>

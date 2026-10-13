@@ -178,6 +178,19 @@ a.reg-row{cursor:pointer}
 .step p{font-size:17px;line-height:1.5;color:rgba(236,232,221,.85)}
 .stats.after{margin-top:120px}
 
+/* the jobs Fix does every day: the steps grid, two rows */
+.jobs{row-gap:64px}
+.jobs .step h3{font-size:32px;line-height:1.05}
+.jobs .step .label{margin-bottom:20px}
+
+/* the Fix teaser's two calls to action, stacked so the quote keeps its column */
+.pull-cta{display:flex;flex-direction:column;align-items:flex-end;gap:18px}
+@media (max-width:1023px){.pull-cta{align-items:flex-start}}
+
+/* the film */
+.film{border-top:1px solid var(--rule);padding-top:40px}
+.film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:var(--black);border:1px solid var(--rule)}
+
 /* faq */
 .s5 h2{grid-column:1/5}
 .faq{grid-column:6/13;border-top:1px solid var(--rule);margin-top:14px}

@@ -25,7 +25,7 @@ const sans = localFont({
 export const metadata: Metadata = {
   title: { default: "Berth", template: "%s · Berth" },
   description: "Fix by Berth. Agents for every desk in maritime trade.",
-  metadataBase: new URL("https://berth.ai"),
+  metadataBase: new URL("https://berthmaritime.com"),
   openGraph: { siteName: "Berth", type: "website" },
 };
 

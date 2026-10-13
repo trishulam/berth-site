@@ -51,7 +51,7 @@ export function Cover({ d, className = "" }: { d: Desk; className?: string }) {
         <p className="para">{d.para}</p>
         <Mark className="mark" />
       </div>
-      <div className="foot"><span>berth.ai{d.open ? "/fix" : ""}</span>{d.open && <em>See the desk &rarr;</em>}</div>
+      <div className="foot"><span>berthmaritime.com{d.open ? "/fix" : ""}</span>{d.open && <em>See the desk &rarr;</em>}</div>
     </>
   );
   const cls = `card${d.open ? "" : " future"} ${className}`.trim();
